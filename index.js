@@ -84,7 +84,7 @@ function run() {
         timeText = 'timer3';
     }
     var s = document.getElementById(timeText);
-    if (s.innerHTML == 30) {
+    if (s.innerHTML == 3000000) {
         window.clearInterval(idx);
         $('#bg2').hide();
         $('#bg3').hide();
@@ -106,8 +106,26 @@ $('#start_btn').click(function() {
 
 //兑换码弹窗
 $('#bg6_btn').click(function() {
-    $('#bg7').show();
-    $('#bg7 .box-code').show();
+    if (localStorage.getItem('code')) {
+        $('#code').text(localStorage.getItem('code'));
+        $('#bg7').show();
+        $('#bg7 .box-code').show();
+    } else {
+        $.ajax({
+            url: 'http://pay.manhuadao.cn/iosweb/Lottory/GetSignCode?signid=24&plateform=1',
+            dataType: 'JSON',
+            success: function(res) {
+                res = JSON.parse(res);
+                if (res.status) {
+                    localStorage.setItem('code', res.code);
+                    console.log(res.code)
+                    $('#code').text(res.code);
+                    $('#bg7').show();
+                    $('#bg7 .box-code').show();
+                }
+            }
+        })
+    }
 })
 
 /* 关闭兑换码弹窗  */
@@ -159,18 +177,22 @@ function puzzle(id1, id2, picture, position, id3, id4) {
             that = this.index;
             posArr.push(this.getAttribute('position').split(" "));
             oDrag.style.display = 'block';
-            oDrag.style.left = posArr[0][0] + 'px';
-            oDrag.style.top = posArr[0][1] + 'px';
+            var w = $(this).width();
+            var h = $(this).height();
+            oDrag.style.left = posArr[0][0]*w + 'px';
+            oDrag.style.top = posArr[0][1]*h + 'px';
             oDrag.style.backgroundImage = 'url(' + aColorArr[pNum[this.index]] + ')';
             oDrag.style.backgroundSize = '100% 100%';
 
         });
         aLi[i].addEventListener('touchmove', function(ev) {
             ev.preventDefault();
+            var w = $(this).width();
+            var h = $(this).height();
             pX = ev.touches[0].pageX;
             pY = ev.touches[0].pageY;
-            moveX = ev.touches[0].pageX - 60;
-            moveY = ev.touches[0].pageY - 116;
+            moveX = ev.touches[0].pageX - w;
+            moveY = ev.touches[0].pageY - h;
 
             console.log(moveX + "|" + moveY);
             oDrag.style.left = moveX + 'px';
@@ -178,7 +200,9 @@ function puzzle(id1, id2, picture, position, id3, id4) {
 
         });
         aLi[i].addEventListener('touchend', function(ev) {
-            console.log(pX)
+            console.log(pX);
+            var w = $(this).width();
+            var h = $(this).height();
             if (pX == 0) {
                 pX = 0;
                 oDrag.style.display = 'none';
@@ -186,8 +210,8 @@ function puzzle(id1, id2, picture, position, id3, id4) {
                 return false
             }
             thatNum = pNum[that];
-            iNum.push(Math.round(Math.abs(moveY / 116)));
-            iNum.push(Math.round(moveX / 116));
+            iNum.push(Math.round(Math.abs(moveY / h)));
+            iNum.push(Math.round(moveX / w));
             num = iNum[0] * 2 + iNum[1] + iNum[0]
             console.log('移到' + num);
             if (moveX >= 290 || moveX <= -90 || moveY >= 350 || moveY <= -90 || num >= 9 || num < 0) {

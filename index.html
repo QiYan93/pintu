@@ -5,13 +5,17 @@
     <meta charset="utf-8">
     <meta name="author" content="Tencent-TGideas">
     <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=320,minimum-scale=1,maximum-scale=5,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="Description" content="" />
     <meta name="Keywords" content="" />
     <title>漫画岛拼图</title>
     <link rel="stylesheet" href="./style.css">
+    <!-- rem -->
+    <script type="text/javascript">
+        !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+    </script>
 </head>
 
 <body>
@@ -54,20 +58,22 @@
                         </div>
                         <ul>
                             <li position="0 0"></li>
-                            <li position="97 0"></li>
-                            <li position="194 0"></li>
-                            <li position="0 117"></li>
-                            <li position="97 117"></li>
-                            <li position="194 117"></li>
-                            <li position="0 234"></li>
-                            <li position="97 234"></li>
-                            <li position="194 234"></li>
+                            <li position="1 0"></li>
+                            <li position="2 0"></li>
+                            <li position="0 1"></li>
+                            <li position="1 1"></li>
+                            <li position="2 1"></li>
+                            <li position="0 2"></li>
+                            <li position="1 2"></li>
+                            <li position="2 2"></li>
                         </ul>
-                        <div class="drag-float" id="Drag" style="display: none; width: 97px; height: 142px; position: absolute; z-index: 99"></div>
+                        <div class="drag-float" id="Drag"></div>
                     </div>
                 </div>
-                <p class="title">斗破苍穹</p>
-                <a href="javascript:;" class="btn_wen"></a>
+                <div class="title-block">
+                    <p class="title">斗破苍穹</p>
+                    <a href="javascript:;" class="btn_wen"></a>
+                </div>
             </div>
         </div>
         <div class="bg3" id="bg3" style="display: none;">
@@ -80,20 +86,22 @@
                         </div>
                         <ul>
                             <li position="0 0"></li>
-                            <li position="97 0"></li>
-                            <li position="194 0"></li>
-                            <li position="0 117"></li>
-                            <li position="97 117"></li>
-                            <li position="194 117"></li>
-                            <li position="0 234"></li>
-                            <li position="97 234"></li>
-                            <li position="194 234"></li>
+                            <li position="1 0"></li>
+                            <li position="2 0"></li>
+                            <li position="0 1"></li>
+                            <li position="1 1"></li>
+                            <li position="2 1"></li>
+                            <li position="0 2"></li>
+                            <li position="1 2"></li>
+                            <li position="2 2"></li>
                         </ul>
-                        <div class="drag-float" id="Drag1" style="display: none; width: 97px; height: 142px; position: absolute; z-index: 99"></div>
+                        <div class="drag-float" id="Drag1"></div>
                     </div>
                 </div>
-                <p class="title">三生三世十里桃花</p>
-                <a href="javascript:;" class="btn_wen"></a>
+                <div class="title-block">
+                    <p class="title">三生三世十里桃花</p>
+                    <a href="javascript:;" class="btn_wen"></a>
+                </div>
             </div>
         </div>
         <div class="bg4" id="bg4" style="display: none;">
@@ -106,20 +114,22 @@
                         </div>
                         <ul>
                             <li position="0 0"></li>
-                            <li position="97 0"></li>
-                            <li position="194 0"></li>
-                            <li position="0 117"></li>
-                            <li position="97 117"></li>
-                            <li position="194 117"></li>
-                            <li position="0 234"></li>
-                            <li position="97 234"></li>
-                            <li position="194 234"></li>
+                            <li position="1 0"></li>
+                            <li position="2 0"></li>
+                            <li position="0 1"></li>
+                            <li position="1 1"></li>
+                            <li position="2 1"></li>
+                            <li position="0 2"></li>
+                            <li position="1 2"></li>
+                            <li position="2 2"></li>
                         </ul>
-                        <div class="drag-float" id="Drag2" style="display: none; width: 97px; height: 142px; position: absolute; z-index: 99"></div>
+                        <div class="drag-float" id="Drag2"></div>
                     </div>
                 </div>
-                <p class="title">孤芳不自赏</p>
-                <a href="javascript:;" class="btn_wen"></a>
+                <div class="title-block">
+                    <p class="title">孤芳不自赏</p>
+                    <a href="javascript:;" class="btn_wen"></a>
+                </div>
             </div>
         </div>
         <div class="bg5" id="bg5" style="display: none;">
@@ -132,27 +142,29 @@
                         </div>
                         <ul>
                             <li position="0 0"></li>
-                            <li position="97 0"></li>
-                            <li position="194 0"></li>
-                            <li position="0 117"></li>
-                            <li position="97 117"></li>
-                            <li position="194 117"></li>
-                            <li position="0 234"></li>
-                            <li position="97 234"></li>
-                            <li position="194 234"></li>
+                            <li position="1 0"></li>
+                            <li position="2 0"></li>
+                            <li position="0 1"></li>
+                            <li position="1 1"></li>
+                            <li position="2 1"></li>
+                            <li position="0 2"></li>
+                            <li position="1 2"></li>
+                            <li position="2 2"></li>
                         </ul>
-                        <div class="drag-float" id="Drag3" style="display: none; width: 97px; height: 142px; position: absolute; z-index: 99"></div>
+                        <div class="drag-float" id="Drag3"></div>
                     </div>
                 </div>
-                <p class="title">拂晓的花嫁</p>
-                <a href="javascript:;" class="btn_wen"></a>
+                <div class="title-block">
+                    <p class="title">拂晓的花嫁</p>
+                    <a href="javascript:;" class="btn_wen"></a>
+                </div>
             </div>
         </div>
         <div class="bg6" id="bg6" style="display: none;">
             <div class="box">
                 <img class="bg6_top" src="./images/succeed.png" />
                 <div class="succeed-p">
-                    <p>你已击败<span id="timeRate"></span>的玩家</p>
+                    <p>你已击败<span class="red" id="timeRate"></span>的玩家</p>
                     <p>点击下方立即领劵，精彩漫画免费看</p>
                 </div>
                 <div class="bg6_con">
