@@ -1,0 +1,520 @@
+html,
+body,
+#wrap {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    font-size: 12px;
+    color: #6e6d6d;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+body,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dd,
+form,
+p {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft YaHei";
+}
+
+h1 {
+    display: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#wrap {
+    width: 320px;
+    background: url(./images/loading.png) no-repeat center top;
+    background-size: 100% 100%;
+}
+
+
+/**/
+
+.bg1,
+.bg2,
+.bg3,
+.bg4,
+.bg5,
+.bg6,
+.bg7,
+.bg8 {
+    width: 320px;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.bg1 {
+    background: url(./images/start.png) no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.bg2 {
+    background: url(./images/ready/doupo-modal.png) no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.bg3 {
+    background: url(./images/ready/sanli-modal.png) no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.bg4 {
+    background: url(./images/ready/gufang-modal.png) no-repeat center top;
+    background-size: 100% 100%;
+}
+
+.bg5 {
+    background: url(./images/ready/fuxiao-modal.png) no-repeat center top;
+    background-size: 100% 100%;
+}
+
+
+/*.bg6 {
+    background: url(http://evt.dianping.com/movie/page-2016-06-06/res/bg6.jpg) no-repeat center top;
+    background-size: 320px;
+}*/
+
+.bg7 {
+    background: rgba(0, 0, 0, .7);
+}
+
+.sp {
+    background: url(./images/btn.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.bg1_top {
+    padding-top: 496px;
+}
+
+.start_btn {
+    width: 119px;
+    height: 40px;
+    background-position: 0 0;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+
+/* 拼图S */
+
+.puzzle {
+    width: 297px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.puzzle1_img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 11
+}
+
+.puzzle1_img img {
+    width: 100%;
+    height: 100%;
+}
+
+.s1 {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-shadow: 0 0 30px #ffeca1;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#4d3a0b), to(#000));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    text-align: center;
+}
+
+.cont {
+    width: 291px;
+    margin: 4px 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cont ul {
+    overflow: hidden;
+}
+
+.cont ul li {
+    width: 97px;
+    height: 142px;
+    float: left;
+    list-style: none;
+}
+
+
+/* 拼图E */
+
+.bg6_top {
+    width: 200px;
+    margin: 50px auto;
+}
+
+.bg6_p {
+    width: 320px;
+    height: 50px;
+    background-position: 0 -129px;
+    text-align: center;
+    font-size: 15px;
+    color: #fefefe;
+    margin-bottom: 41px;
+}
+
+.bg6_con {
+    width: 274px;
+    height: 41px;
+    margin: 0 auto;
+}
+
+.bg6_btn {
+    width: 119px;
+    height: 41px;
+    /*background-position: -129px 0;*/
+    background-image: url(./images/get.png);
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.again_btn {
+    width: 119px;
+    height: 41px;
+    /*background-position: -52px -266px;*/
+    background-image: url(./images/again.png);
+    display: inline-block;
+    margin: 0 8px;
+}
+
+
+/* loading */
+
+.loading {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    height: 309px;
+    padding-top: 268px;
+}
+
+.loading_rate {
+    height: 20px;
+    color: #4d3a0b;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.loading_s1 {
+    font-size: 11px;
+    color: #9fabba;
+    line-height: 25px;
+    text-align: center;
+}
+
+
+/* 弹窗 */
+
+.tan_bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+}
+
+.ready {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    font-size: 45px;
+    color: #ffffff;
+    line-height: 50px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.ready_p1 {
+    -webkit-animation: fadeInLeft 2.5s .5s ease both;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        -webkit-transform: scale(2)
+    }
+    /*50%{-webkit-transform:scale(1)}*/
+    100% {
+        -webkit-transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.ready_p2 {
+    -webkit-animation: readyRight 2.5s 2.5s ease both;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+
+@-webkit-keyframes readyRight {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: 1;
+    }
+    /*50%{-webkit-transform:scale(1); opacity: 1}*/
+    100% {
+        -webkit-transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.xx1 {
+    -webkit-animation: fadeInUp .3s 0s ease both;
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        -webkit-transform: translateY(504px)
+    }
+    100% {
+        -webkit-transform: translateY(0)
+    }
+}
+
+.btn_wen {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    bottom: 25px;
+    right: 6px;
+    background: url(./images/scan.png) no-repeat;
+    background-size: 100% 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.increase {
+    width: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.increase_ul {
+    width: 284px;
+    height: auto;
+    padding-top: 35px;
+    margin: 0 auto;
+}
+
+.increase_ul li {
+    width: 132px;
+    height: auto;
+    float: left;
+    margin: 0 5px 8px;
+    padding: 4px 0;
+    background: #59430e;
+}
+
+.increase_ul li img {
+    width: 124px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.increase_ul .on {
+    background: darkred;
+}
+
+.increase_p {
+    display: inline-block;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: #4c390b;
+    text-shadow: 0 0 10px #ffeca1;
+}
+
+.increase_p1 {
+    height: 18px;
+    font-size: 12px;
+    color: #312507;
+    line-height: 18px;
+    text-align: center;
+}
+
+@media screen and (max-height: 480px) {
+    .box {
+        -webkit-transform: scale(.8);
+        -webkit-transform-origin: top center;
+    }
+    .puzzle {
+        margin: 50px auto;
+    }
+    .bg6_top {
+        height: 372px;
+    }
+}
+
+.loading_div {
+    width: 56px;
+    height: 35px;
+    margin: auto;
+    background: url(./images/loading-icon.png) no-repeat;
+    background-size: 100%;
+}
+
+.box .title {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #4d3a0b;
+    font-size: 26px;
+    text-align: center;
+    text-shadow: 0 0 30px #ffeca1;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#4d3a0b), to(#000));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.bg6 .box {
+    position: relative;
+}
+
+.succeed-p {
+    z-index: 99;
+    position: absolute;
+    top: 140px;
+    width: 100%;
+    height: 1.5em;
+    line-height: 1.5em;
+    font-size: 12px;
+    font-family: "Heiti TC";
+    color: rgb(50, 31, 27);
+    text-align: center;
+}
+
+.bg7 {
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bg7 .box {
+    display: none;
+    position: relative;
+    width: 200px;
+    margin: 180px auto 0;
+    padding: 30px 0;
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+}
+
+.bg7 .box .top {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.bg7 .box .code-block {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+.bg7 .box .code-block .code {
+    width: 100px;
+    margin: auto;
+    margin-top: 5px;
+    padding: 4px 0;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.bg7 .box .announcements {
+    color: #c19427;
+}
+
+.bg7 .box .close-icon {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: url(./images/close.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.box-announcements .block {
+    line-height: 18px;
+    padding: 0 15px 0 30px;
+    text-indent: -18px;
+    text-align: justify;
+    color: #333;
+}
+
+.box-announcements .block p {
+    margin-bottom: 15px;
+}
+
+.box-announcements .block p:last-child {
+    margin: 0;
+}
+
+.red {
+    color: #ad4746;
+}

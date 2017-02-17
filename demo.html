@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Tencent-TGideas">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=320,minimum-scale=1,maximum-scale=5,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="Description" content="" />
+    <meta name="Keywords" content="" />
+    <title>漫画岛拼图</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="loading" id="loading">
+            <div class="inner">
+                <div class="loading_div"></div>
+                <p class="loading_t"><span id="loading_t"></span></p>
+                <p class="loading_rate" id="loading_rate"></p>
+            </div>
+        </div>
+        <div class="bg1" id="bg1" style="display: none;">
+            <div class="box">
+                <div class="mars">
+                    <div class="bg1_top">
+                        <a href="javascript:;" class="sp start_btn" id="start_btn" title=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="increase" id="increase" style="display: none;">
+            <div class="box">
+                <ul class="increase_ul">
+                    <li class="li1"><img src="./images/ready/doupo.png" alt=""></li>
+                    <li class="li2"><img src="./images/ready/sanli.png" alt=""></li>
+                    <li class="li3"><img src="./images/ready/gufang.png" alt=""></li>
+                    <li class="li4"><img src="./images/ready/fuxiao.png" alt=""></li>
+                </ul>
+                <p class="increase_p">30秒内移动碎片，拼出拼图</p>
+                <p class="increase_p1">选择喜欢的拼图，开始游戏吧~</p>
+            </div>
+        </div>
+        <div class="bg2" id="bg2" style="display: none;">
+            <div class="box">
+                <div class="puzzle">
+                    <p class="s1">已用时： <span id="timer0">0</span>/30S</p>
+                    <div class="cont" id="Cont">
+                        <div class="puzzle1_img" id="puzzle1_img">
+                            <img src="./images/ready/doupo.png" alt="">
+                        </div>
+                        <ul>
+                            <li position="0 0"></li>
+                            <li position="97 0"></li>
+                            <li position="194 0"></li>
+                            <li position="0 117"></li>
+                            <li position="97 117"></li>
+                            <li position="194 117"></li>
+                            <li position="0 234"></li>
+                            <li position="97 234"></li>
+                            <li position="194 234"></li>
+                        </ul>
+                        <div class="drag-float" id="Drag" style="display: none; width: 97px; height: 142px; position: absolute; z-index: 99"></div>
+                    </div>
+                </div>
+                <p class="title">斗破苍穹</p>
+                <a href="javascript:;" class="btn_wen"></a>
+            </div>
+        </div>
+        <div class="bg3" id="bg3" style="display: none;">
+            <div class="box">
+                <div class="puzzle">
+                    <p class="s1">已用时： <span id="timer1">0</span>/30S</p>
+                    <div class="cont" id="Cont1">
+                        <div class="puzzle1_img">
+                            <img src="./images/ready/sanli.png" alt="">
+                        </div>
+                        <ul>
+                            <li position="0 0"></li>
+                            <li position="97 0"></li>
+                            <li position="194 0"></li>
+                            <li position="0 117"></li>
+                            <li position="97 117"></li>
+                            <li position="194 117"></li>
+                            <li position="0 234"></li>
+                            <li position="97 234"></li>
+                            <li position="194 234"></li>
+                        </ul>
+                        <div class="drag-float" id="Drag1" style="display: none; width: 97px; height: 142px; position: absolute; z-index: 99"></div>
+                    </div>
+                </div>
+                <p class="title">三生三世十里桃花</p>
+                <a href="javascript:;" class="btn_wen"></a>
+            </div>
+        </div>
+        <div class="bg4" id="bg4" style="display: none;">
+            <div class="box">
+                <div class="puzzle">
+                    <p class="s1">已用时： <span id="timer2">0</span>/30S</p>
+                    <div class="cont" id="Cont2">
+                        <div class="puzzle1_img">
+                            <img src="./images/ready/gufang.png" alt="">
+                        </div>
+                        <ul>
+                            <li position="0 0"></li>
+                            <li position="97 0"></li>
+                            <li position="194 0"></li>
+                            <li position="0 117"></li>
+                            <li position="97 117"></li>
+                            <li position="194 117"></li>
+                            <li position="0 234"></li>
+                            <li position="97 234"></li>
+                            <li position="194 234"></li>
+                        </ul>
+                        <div class="drag-float" id="Drag2" style="display: none; width: 97px; height: 142px; position: absolute; z-index: 99"></div>
+                    </div>
+                </div>
+                <p class="title">孤芳不自赏</p>
+                <a href="javascript:;" class="btn_wen"></a>
+            </div>
+        </div>
+        <div class="bg5" id="bg5" style="display: none;">
+            <div class="box">
+                <div class="puzzle">
+                    <p class="s1">已用时： <span id="timer3">0</span>/30S</p>
+                    <div class="cont" id="Cont3">
+                        <div class="puzzle1_img">
+                            <img src="./images/ready/fuxiao.png" alt="">
+                        </div>
+                        <ul>
+                            <li position="0 0"></li>
+                            <li position="97 0"></li>
+                            <li position="194 0"></li>
+                            <li position="0 117"></li>
+                            <li position="97 117"></li>
+                            <li position="194 117"></li>
+                            <li position="0 234"></li>
+                            <li position="97 234"></li>
+                            <li position="194 234"></li>
+                        </ul>
+                        <div class="drag-float" id="Drag3" style="display: none; width: 97px; height: 142px; position: absolute; z-index: 99"></div>
+                    </div>
+                </div>
+                <p class="title">拂晓的花嫁</p>
+                <a href="javascript:;" class="btn_wen"></a>
+            </div>
+        </div>
+        <div class="bg6" id="bg6" style="display: none;">
+            <div class="box">
+                <img class="bg6_top" src="./images/succeed.png" />
+                <div class="succeed-p">
+                    <p>你已击败<span id="timeRate"></span>的玩家</p>
+                    <p>点击下方立即领劵，精彩漫画免费看</p>
+                </div>
+                <div class="bg6_con">
+                    <a href="javascript:;" class="sp bg6_btn" id="bg6_btn"></a>
+                    <a href="javascript:;" class="sp again_btn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="bg7" id="bg7" style="display: none;">
+            <div class="box box-code">
+                <div class="top">
+                    <p>获得漫画岛1000漫画券</p>
+                    <p>赶集去刷漫画啦！</p>
+                </div>
+                <div class="code-block">
+                    <p>兑换码</p>
+                    <p class="code" id="code">1231231</p>
+                </div>
+                <div class="announcements">
+                    注意事项 >
+                </div>
+                <div class="close-icon"></div>
+            </div>
+            <div class="box box-failed">
+                <div class="block">
+                    <p>555~~失败了</p>
+                    <a href="javascript:;" class="sp again_btn"></a>
+                </div>
+                <div class="close-icon again_btn" style="margin: 0"></div>
+            </div>
+            <div class="box box-announcements">
+                <div class="block">
+                    <p>1、打开<span class="red">漫画岛APP</span>（新用户可从APP Store及各大安卓应用市场下载），点击底部菜单栏中<span class="red">"我的"</span>，进入个人账户</p>
+                    <p>2、点击进入<span class="red">"我的账户"</span>，点击<span class="red">"马上领取"</span>，进入漫画券兑换中心</p>
+                    <p>3、输入/粘贴你所获得的6位漫画券兑换码，兑换成功！</p>
+                </div>
+                <div class="close-icon"></div>
+            </div>
+        </div>
+    </div>
+    <!-- ready -->
+    <div class="tan_bg" id="ready" style="display:none">
+        <div class="ready">
+            <p class="ready_p1">READY!</p>
+            <p class="ready_p2">GO!!!</p>
+        </div>
+    </div>
+    <!-- ready -->
+    <script type="text/javascript">
+        if (navigator.appVersion.indexOf('Android') != -1) {
+            document.addEventListener("DOMContentLoaded", function(e) {
+                document.getElementById('wrap').style.zoom = e.target.activeElement.clientWidth / 320;
+            });
+        }
+    </script>
+    <script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
