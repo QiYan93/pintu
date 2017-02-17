@@ -106,26 +106,8 @@ $('#start_btn').click(function() {
 
 //兑换码弹窗
 $('#bg6_btn').click(function() {
-    if (localStorage.getItem('code')) {
-        $('#code').text(localStorage.getItem('code'));
-        $('#bg7').show();
-        $('#bg7 .box-code').show();
-    } else {
-        $.ajax({
-            url: 'http://pay.manhuadao.cn/iosweb/Lottory/GetSignCode?signid=24&plateform=1',
-            dataType: 'JSON',
-            success: function(res) {
-                res = JSON.parse(res);
-                if (res.status) {
-                    localStorage.setItem('code', res.code);
-                    console.log(res.code)
-                    $('#code').text(res.code);
-                    $('#bg7').show();
-                    $('#bg7 .box-code').show();
-                }
-            }
-        })
-    }
+    $('#bg7').show();
+    $('#bg7 .box-code').show();
 })
 
 /* 关闭兑换码弹窗  */
