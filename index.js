@@ -1,3 +1,98 @@
+/*加载*/
+var load = $('#loading');
+var imgPath = './images/';
+var loadingPage = (function() {
+    var imgSources = [
+        'loading-icon.png',
+        'loading.png',
+        'start.png',
+        'scan.png',
+        'get.png',
+        'close.png',
+        'succeed.png',
+        'again.png',
+        'btn.png',
+        'doupo/doupo-01.png',
+        'doupo/doupo-02.png',
+        'doupo/doupo-03.png',
+        'doupo/doupo-04.png',
+        'doupo/doupo-05.png',
+        'doupo/doupo-06.png',
+        'doupo/doupo-07.png',
+        'doupo/doupo-08.png',
+        'doupo/doupo-09.png',
+        'sanli/sanli-01.png',
+        'sanli/sanli-02.png',
+        'sanli/sanli-03.png',
+        'sanli/sanli-04.png',
+        'sanli/sanli-05.png',
+        'sanli/sanli-06.png',
+        'sanli/sanli-07.png',
+        'sanli/sanli-08.png',
+        'sanli/sanli-09.png',
+        'gufang/gufang-01.png',
+        'gufang/gufang-02.png',
+        'gufang/gufang-03.png',
+        'gufang/gufang-04.png',
+        'gufang/gufang-05.png',
+        'gufang/gufang-06.png',
+        'gufang/gufang-07.png',
+        'gufang/gufang-08.png',
+        'gufang/gufang-09.png',
+        'fuxiao/fuxiao-01.png',
+        'fuxiao/fuxiao-02.png',
+        'fuxiao/fuxiao-03.png',
+        'fuxiao/fuxiao-04.png',
+        'fuxiao/fuxiao-05.png',
+        'fuxiao/fuxiao-06.png',
+        'fuxiao/fuxiao-07.png',
+        'fuxiao/fuxiao-08.png',
+        'fuxiao/fuxiao-09.png',
+        'ready/doupo-modal.png',
+        'ready/doupo.png',
+        'ready/sanli-modal.png',
+        'ready/sanli.png',
+        'ready/gufang-modal.png',
+        'ready/gufang.png',
+        'ready/fuxiao-modal.png',
+        'ready/fuxiao.png'
+    ];
+    for (var i = 0; i < imgSources.length; i++) {
+        imgSources[i] = (imgPath + imgSources[i]);
+    };
+    var loadImage = function(path, callback) {
+        var img = new Image();
+        img.onload = function() {
+            img.onload = null;
+            callback(path);
+        };
+        img.src = path;
+    };
+    var imgLoader = function(imgs, callback) {
+        var len = imgs.length,
+            i = 0;
+        while (imgs.length) {
+            loadImage(imgs.shift(), function(path) {
+                callback(path, ++i, len);
+            })
+        }
+    };
+    var rateNum = document.getElementById('loading_rate');
+    var bar = document.getElementById('bar');
+    var percent = 0;
+    imgLoader(imgSources, function(path, curNum, total) {
+        percent = curNum / total;
+        rateNum.innerHTML = Math.floor(percent * 100) + '%';
+        if (percent == 1) {
+            setTimeout(function() {
+                $('#loading').hide();
+                $('#bg1').show();
+            }, 500);
+        }
+    });
+})();
+
+
 var idx = 0;
 var obj1 = {
     id1: 'Cont',
@@ -84,7 +179,7 @@ function run() {
         timeText = 'timer3';
     }
     var s = document.getElementById(timeText);
-    if (s.innerHTML == 3000000) {
+    if (s.innerHTML == 300000) {
         window.clearInterval(idx);
         $('#bg2').hide();
         $('#bg3').hide();
@@ -94,6 +189,7 @@ function run() {
         $('#bg7 .box').hide();
         $('#bg7').show();
         $('#bg7 .box-failed').show();
+        $('#puzzle1_img').show();
         return false;
     }
     s.innerHTML = s.innerHTML * 1 + 1;
@@ -108,6 +204,27 @@ $('#start_btn').click(function() {
 $('#bg6_btn').click(function() {
     $('#bg7').show();
     $('#bg7 .box-code').show();
+    // if (localStorage.getItem('code')) {
+    //     $('#code').text(localStorage.getItem('code'));
+    //     $('#bg7').show();
+    //     $('#bg7 .box').hide();
+    //     $('#bg7 .box-code').show();
+    // } else {
+    //     $.ajax({
+    //         url: 'http://pay.manhuadao.cn/iosweb/Lottory/GetSignCode?signid=24&plateform=1',
+    //         dataType: 'JSON',
+    //         success: function(res) {
+    //             res = JSON.parse(res);
+    //             if (res.status) {
+    //                 localStorage.setItem('code', res.code);
+    //                 console.log(res.code)
+    //                 $('#code').text(res.code);
+    //                 $('#bg7').show();
+    //                 $('#bg7 .box-code').show();
+    //             }
+    //         }
+    //     })
+    // }
 })
 
 /* 关闭兑换码弹窗  */
@@ -282,6 +399,7 @@ $('#again').on('click', function() {
 function playAgain() {
     //page--;
     var timeText = '';
+    var position = [7, 3, 5, 8, 6, 2, 1, 4, 0];
     if (that == 0) {
         timeText = 'timer0';
     } else if (that == 1) {
@@ -294,13 +412,13 @@ function playAgain() {
     document.getElementById(timeText).innerHTML = 0;
     // hideTan('tanBg');
     if (that == 0) {
-        puzzle(obj1.id1, obj1.id2, obj1.picture, obj1.position, obj1.id3, obj1.id4);
+        puzzle(obj1.id1, obj1.id2, obj1.picture, position, obj1.id3, obj1.id4);
     } else if (that == 1) {
-        puzzle(obj2.id1, obj2.id2, obj2.picture, obj2.position, obj2.id3, obj2.id4);
+        puzzle(obj2.id1, obj2.id2, obj2.picture, position, obj2.id3, obj2.id4);
     } else if (that == 2) {
-        puzzle(obj3.id1, obj3.id2, obj3.picture, obj3.position, obj3.id3, obj3.id4);
+        puzzle(obj3.id1, obj3.id2, obj3.picture, position, obj3.id3, obj3.id4);
     } else if (that == 3) {
-        puzzle(obj4.id1, obj4.id2, obj4.picture, obj4.position, obj4.id3, obj4.id4);
+        puzzle(obj4.id1, obj4.id2, obj4.picture, position, obj4.id3, obj4.id4);
     }
 };
 //显示原图
@@ -316,101 +434,6 @@ $('.puzzle1_img').click(function() {
         $('.puzzle1_img').hide();
     }
 })
-
-/*加载*/
-var load = $('#loading');
-var imgPath = './images/';
-var loadingPage = (function() {
-    var imgSources = [
-        'loading.png',
-        'loading-icon.png',
-        'start.png',
-        'scan.png',
-        'get.png',
-        'close.png',
-        'succeed.png',
-        'again.png',
-        'btn.png',
-        'doupo/doupo-01.png',
-        'doupo/doupo-02.png',
-        'doupo/doupo-03.png',
-        'doupo/doupo-04.png',
-        'doupo/doupo-05.png',
-        'doupo/doupo-06.png',
-        'doupo/doupo-07.png',
-        'doupo/doupo-08.png',
-        'doupo/doupo-09.png',
-        'sanli/sanli-01.png',
-        'sanli/sanli-02.png',
-        'sanli/sanli-03.png',
-        'sanli/sanli-04.png',
-        'sanli/sanli-05.png',
-        'sanli/sanli-06.png',
-        'sanli/sanli-07.png',
-        'sanli/sanli-08.png',
-        'sanli/sanli-09.png',
-        'gufang/gufang-01.png',
-        'gufang/gufang-02.png',
-        'gufang/gufang-03.png',
-        'gufang/gufang-04.png',
-        'gufang/gufang-05.png',
-        'gufang/gufang-06.png',
-        'gufang/gufang-07.png',
-        'gufang/gufang-08.png',
-        'gufang/gufang-09.png',
-        'fuxiao/fuxiao-01.png',
-        'fuxiao/fuxiao-02.png',
-        'fuxiao/fuxiao-03.png',
-        'fuxiao/fuxiao-04.png',
-        'fuxiao/fuxiao-05.png',
-        'fuxiao/fuxiao-06.png',
-        'fuxiao/fuxiao-07.png',
-        'fuxiao/fuxiao-08.png',
-        'fuxiao/fuxiao-09.png',
-        'ready/doupo-modal.png',
-        'ready/doupo.png',
-        'ready/sanli-modal.png',
-        'ready/sanli.png',
-        'ready/gufang-modal.png',
-        'ready/gufang.png',
-        'ready/fuxiao-modal.png',
-        'ready/fuxiao.png'
-    ];
-    for (var i = 0; i < imgSources.length; i++) {
-        imgSources[i] = (imgPath + imgSources[i]);
-    };
-    var loadImage = function(path, callback) {
-        var img = new Image();
-        img.onload = function() {
-            img.onload = null;
-            callback(path);
-        };
-        img.src = path;
-    };
-    var imgLoader = function(imgs, callback) {
-        var len = imgs.length,
-            i = 0;
-        while (imgs.length) {
-            loadImage(imgs.shift(), function(path) {
-                callback(path, ++i, len);
-            })
-        }
-    };
-    var rateNum = document.getElementById('loading_rate');
-    var bar = document.getElementById('bar');
-    var percent = 0;
-    imgLoader(imgSources, function(path, curNum, total) {
-        percent = curNum / total;
-        rateNum.innerHTML = Math.floor(percent * 100) + '%';
-        if (percent == 1) {
-            setTimeout(function() {
-                $('#loading').hide();
-                $('#bg1').show();
-            }, 500);
-        }
-    });
-})();
-
 
 var oIncrease = document.getElementById('increase');
 var aSel = oIncrease.getElementsByTagName('li');
@@ -429,8 +452,8 @@ for (var i = 0; i < aSel.length; i++) {
     }
 };
 
-var bg6Btn1 = $('.again_btn');
-bg6Btn1.on('click', function() {
+var again_btn = $('.again_btn');
+again_btn.on('click', function() {
     $('#increase').show();
     $('#bg6').hide();
     $('#bg7').hide();

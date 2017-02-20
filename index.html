@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="author" content="Tencent-TGideas">
     <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="Description" content="" />
@@ -14,7 +14,21 @@
     <link rel="stylesheet" href="./style.css">
     <!-- rem -->
     <script type="text/javascript">
-        !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+        !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c-5+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+    </script>
+    <script>
+        var $html = document.getElementsByTagName('html')[0];
+        function browser(){
+            let u = navigator.userAgent;
+            return {
+                android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                wechat: u.indexOf('MicroMessenger') > -1 //微信
+            }
+        }
+        if($html.clientWidth <= 320){
+            $html.style.fontSize = '26px';
+        }
     </script>
 </head>
 
@@ -38,6 +52,7 @@
         </div>
         <div class="increase" id="increase" style="display: none;">
             <div class="box">
+                <p class="s1">请选择其中一副海报开始拼图！</p>
                 <ul class="increase_ul">
                     <li class="li1"><img src="./images/ready/doupo.png" alt=""></li>
                     <li class="li2"><img src="./images/ready/sanli.png" alt=""></li>
@@ -45,13 +60,13 @@
                     <li class="li4"><img src="./images/ready/fuxiao.png" alt=""></li>
                 </ul>
                 <p class="increase_p">30秒内移动碎片，拼出拼图</p>
-                <p class="increase_p1">选择喜欢的拼图，开始游戏吧~</p>
+                <!--<p class="increase_p1">选择喜欢的拼图，开始游戏吧~</p>-->
             </div>
         </div>
         <div class="bg2" id="bg2" style="display: none;">
             <div class="box">
                 <div class="puzzle">
-                    <p class="s1">已用时： <span id="timer0">0</span>/30S</p>
+                    <p class="s1"><span class="rules">30秒内移动碎片，拼出漫画海报</span>已用时：<span id="timer0">0</span>S</p>
                     <div class="cont" id="Cont">
                         <div class="puzzle1_img" id="puzzle1_img">
                             <img src="./images/ready/doupo.png" alt="">
@@ -79,7 +94,7 @@
         <div class="bg3" id="bg3" style="display: none;">
             <div class="box">
                 <div class="puzzle">
-                    <p class="s1">已用时： <span id="timer1">0</span>/30S</p>
+                    <p class="s1"><span class="rules">30秒内移动碎片，拼出漫画海报</span>已用时：<span id="timer1">0</span>S</p>
                     <div class="cont" id="Cont1">
                         <div class="puzzle1_img">
                             <img src="./images/ready/sanli.png" alt="">
@@ -107,7 +122,7 @@
         <div class="bg4" id="bg4" style="display: none;">
             <div class="box">
                 <div class="puzzle">
-                    <p class="s1">已用时： <span id="timer2">0</span>/30S</p>
+                    <p class="s1"><span class="rules">30秒内移动碎片，拼出漫画海报</span>已用时：<span id="timer2">0</span>S</p>
                     <div class="cont" id="Cont2">
                         <div class="puzzle1_img">
                             <img src="./images/ready/gufang.png" alt="">
@@ -135,7 +150,7 @@
         <div class="bg5" id="bg5" style="display: none;">
             <div class="box">
                 <div class="puzzle">
-                    <p class="s1">已用时： <span id="timer3">0</span>/30S</p>
+                    <p class="s1"><span class="rules">30秒内移动碎片，拼出漫画海报</span>已用时：<span id="timer3">0</span>S</p>
                     <div class="cont" id="Cont3">
                         <div class="puzzle1_img">
                             <img src="./images/ready/fuxiao.png" alt="">
@@ -190,7 +205,7 @@
             </div>
             <div class="box box-failed">
                 <div class="block">
-                    <p>555~~失败了</p>
+                    <p class="failed-p">555~~失败了</p>
                     <a href="javascript:;" class="sp again_btn"></a>
                 </div>
                 <div class="close-icon again_btn" style="margin: 0"></div>
